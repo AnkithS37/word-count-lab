@@ -34,4 +34,18 @@ class WordAnalyzer:
         for word in sorted(self.__frequencies.keys()):
             print(f"{word:<15} :: {self.__frequencies[word]}")
 
-            
+def main():
+    base = pathlib.Path(__file__). parent
+    files = {
+        "1": base / "princess_mars.txt",
+        "2": base / "Tarzan.txt",
+        "3": base / "treasure_island.txt",
+        "4": base / "monte_cristo.txt",
+    }
+    while True:
+        print("\n--- Word Analyzer ---")
+        print("Please select a file to analyze:")
+        for key, path in files.items():
+            print(f"{key}. {path.name}")
+        print("5. Exit")
+        break
