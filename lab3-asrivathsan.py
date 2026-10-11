@@ -10,3 +10,12 @@ Date: October 11, 2026
 
 import pathlib
 import string
+
+class WordAnalyzer:
+    def __init__(self, filepath):
+        self.__filepath = pathlib.Path(filepath)
+        self.__frequencies = {}
+
+
+analyzer = WordAnalyzer("Tarzan.txt")
+print(analyzer._WordAnalyzer__filepath)
