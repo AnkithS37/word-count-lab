@@ -16,6 +16,16 @@ class WordAnalyzer:
         self.__filepath = pathlib.Path(filepath)
         self.__frequencies = {}
 
-
-analyzer = WordAnalyzer("Tarzan.txt")
-print(analyzer._WordAnalyzer__filepath)
+    def process_file(self):
+        try:
+            if not self.__filepath.exists():
+                raise FileNotFoundError
+            table = str.maketrans("", "", string.punctuation)
+            with self.__filepath.open() as file:
+                for line in file:
+                    for word in line.translate(table).lower().split():
+                        self.__frequencies[word] = self.__frequencies.get(word, 0) + 1
+            return True
+        except FileNotFoundError:
+            print("File not found.")
+            return False
