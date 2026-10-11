@@ -10,7 +10,6 @@ Date: October 11, 2026
 
 import pathlib
 import string
-
 class WordAnalyzer:
     def __init__(self, filepath):
         self.__filepath = pathlib.Path(filepath)
@@ -46,6 +45,12 @@ def main():
         print("\n--- Word Analyzer ---")
         print("Please select a file to analyze:")
         for key, path in files.items():
-            print(f"{key}. {path.name}")
+            print(f"{key}. {path.stem}")
         print("5. Exit")
-        break
+        choice = input("\nEnter your choice (1-5): ")
+        if choice == "5":
+            print("\nGoodbye!")
+            break
+        print("\nYou picked:", choice)
+        input("\nPress Enter to return to the menu...")
+main()
