@@ -51,6 +51,14 @@ def main():
         if choice == "5":
             print("\nGoodbye!")
             break
-        print("\nYou picked:", choice)
+        if choice in files:
+            print(f"\nProcessing '{files[choice].name}'...\n")
+            analyzer = WordAnalyzer(str(files[choice]))
+            if analyzer.process_file():
+                analyzer.print_report()
+        else:
+            print("\nInvalid choice. Please try again.")
         input("\nPress Enter to return to the menu...")
+
 main()
+
